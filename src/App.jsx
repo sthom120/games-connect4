@@ -5,6 +5,7 @@ import GamesDashboard from "./pages/GamesDashboard";
 import Connect4Page from "./pages/Connect4Page";
 import BottomNav from "./components/BottomNav";
 import SettingsPage from "./pages/SettingsPage";
+import MessagesPage from "./pages/MessagesPage";
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState("dashboard");
@@ -63,12 +64,7 @@ function App() {
           <GamesDashboard onSelectGame={handleSelectGame} />
         )}
 
-        {currentScreen === "messages" && (
-          <section className="simple-page-card">
-            <h1>Messages</h1>
-            <p>Helper contact and messages will go here.</p>
-          </section>
-        )}
+        {currentScreen === "messages" && <MessagesPage />}
 
         {currentScreen === "settings" && (
   <SettingsPage
