@@ -63,13 +63,14 @@
   color: var(--text-main);
   display: flex;
   justify-content: center;
-  padding: 24px;
+  padding: clamp(16px, 3vw, 32px);
 }
 
 .dashboard,
 .connect-page {
   width: 100%;
   max-width: 420px;
+  margin: 0 auto;
 }
 
 /* =========================
@@ -86,17 +87,17 @@
 }
 
 .game-card {
-  padding: 28px;
+  padding: clamp(22px, 2vw, 28px);
 }
 
 .connect-game-card {
-  padding: 24px;
+  padding: clamp(18px, 2vw, 24px);
   text-align: center;
 }
 
 .help-contact-setup {
   margin-top: 24px;
-  padding: 24px;
+  padding: clamp(18px, 2vw, 24px);
 }
 
 .game-card-muted {
@@ -817,14 +818,22 @@ input:focus-visible {
 
 .simple-page-card h1 {
   margin: 0 0 12px;
-  font-size: 2.2rem;
+  font-size: clamp(1.9rem, 2.6vw, 2.2rem);
 }
 
 .simple-page-card p {
   margin: 0;
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
   line-height: 1.5;
+}
+
+@media (min-width: 720px) {
+  .dashboard,
+  .connect-page,
+  .simple-page-card {
+    max-width: 720px;
+  }
 }
 
 /* =========================
@@ -837,7 +846,7 @@ input:focus-visible {
   bottom: 18px;
   transform: translateX(-50%);
 
-  width: calc(100% - 32px);
+  width: min(420px, calc(100% - 32px));
   max-width: 420px;
 
   display: grid;
@@ -950,4 +959,28 @@ input:focus-visible {
   background: linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
   color: #ffffff;
   box-shadow: 0 6px 14px rgba(100, 40, 215, 0.25);
+}
+
+/* =========================
+   Page icon headings
+   ========================= */
+
+.page-icon-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.page-icon-heading img {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.page-icon-heading h1 {
+  margin: 0 0 8px;
+}
+
+.page-icon-heading p {
+  margin: 0;
 }

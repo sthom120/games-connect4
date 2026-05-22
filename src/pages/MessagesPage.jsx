@@ -20,8 +20,18 @@ function MessagesPage() {
 
   return (
     <section className="simple-page-card">
-      <h1>Messages</h1>
-      <p>Set up a helper contact so a message is easy to send if needed.</p>
+      <div className="page-icon-heading">
+        <img
+          src={`${import.meta.env.BASE_URL}icons/help-message-icon.svg`}
+          alt=""
+          aria-hidden="true"
+        />
+
+        <div>
+          <h1>Messages</h1>
+          <p>Set up a helper contact so a message is easy to send if needed.</p>
+        </div>
+      </div>
 
       {helpContact ? (
         <div className="message-area">
