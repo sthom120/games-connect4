@@ -1,0 +1,377 @@
+/* 
+  Main app styling for the Games app.
+  The aim is to make the screen calm, clear, and easy to use.
+*/
+
+.app {
+  min-height: 100vh;
+  background: #f8f3ea;
+  color: #1f2933;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 420px;
+}
+
+.dashboard-header {
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.6rem;
+  margin: 0;
+}
+
+.dashboard-header p {
+  font-size: 1.2rem;
+  margin-top: 8px;
+  color: #5f6c7b;
+}
+
+.games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.game-card {
+  background: #ffffff;
+  border: 2px solid #e1d8cc;
+  border-radius: 28px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.08);
+}
+
+.game-card-muted {
+  opacity: 0.6;
+}
+
+.connect-icon {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.red-counter,
+.yellow-counter {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red-counter {
+  background: #d94f45;
+}
+
+.yellow-counter {
+  background: #f2c94c;
+}
+
+.game-card h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.game-card p {
+  font-size: 1.1rem;
+  color: #5f6c7b;
+}
+
+.game-card button,
+.message-button {
+  margin-top: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 18px 24px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.game-card button {
+  background: #2f80ed;
+  color: white;
+}
+
+.game-card button:hover {
+  background: #1f6ed4;
+}
+
+.game-card button:disabled {
+  background: #d1d5db;
+  color: #4b5563;
+  cursor: not-allowed;
+}
+
+.message-button {
+  background: #dff4ef;
+  color: #1f6f61;
+  border: 2px solid #9dd8cc;
+  margin-top: 24px;
+}
+
+.message-button:hover {
+  background: #ccece5;
+}
+
+/* =========================
+   Connect 4 page
+   ========================= */
+
+.connect-page {
+  width: 100%;
+  max-width: 420px;
+}
+
+.connect-header {
+  margin-bottom: 24px;
+}
+
+.connect-header h1 {
+  font-size: 2.4rem;
+  margin: 20px 0 0;
+}
+
+.connect-header p {
+  font-size: 1.1rem;
+  color: #5f6c7b;
+  margin-top: 8px;
+}
+
+.back-button {
+  border: none;
+  background: transparent;
+  color: #2f80ed;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+}
+
+.connect-game-card {
+  background: #ffffff;
+  border: 2px solid #e1d8cc;
+  border-radius: 28px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.08);
+}
+
+.turn-message {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 0 18px;
+
+  /* Keeps the board from moving when the message changes */
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+}
+
+
+.game-instruction {
+  font-size: 1.1rem;
+  color: #5f6c7b;
+  margin: 20px 0;
+}
+
+.new-game-button {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 18px 24px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: #2f80ed;
+  color: white;
+  cursor: pointer;
+}
+
+.new-game-button:hover {
+  background: #1f6ed4;
+}
+
+/* =========================
+   Connect 4 board
+   ========================= */
+
+.connect-board-area {
+  width: 100%;
+}
+
+.column-buttons {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.column-button {
+  border: 2px solid #9bb7d4;
+  background: #eef6ff;
+  color: #2f80ed;
+  border-radius: 999px;
+  min-height: 42px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.column-button:hover {
+  background: #dceeff;
+}
+
+.column-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.connect-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  background: #2f80ed;
+  border: 4px solid #1f6ed4;
+  border-radius: 24px;
+  padding: 10px;
+}
+
+.connect-cell {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #dbeafe;
+}
+
+.cell-red {
+  background: #d94f45;
+  border-color: #b93d36;
+}
+
+.cell-yellow {
+  background: #f2c94c;
+  border-color: #d6a92f;
+}
+
+/* =========================
+   Column highlighting
+   ========================= */
+
+.column-button-highlighted {
+  background: #dceeff;
+  border-color: #2f80ed;
+  transform: translateY(-2px);
+}
+
+.cell-highlighted-column {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.55);
+}
+
+.connect-cell.cell-highlighted-column:not(.cell-red):not(.cell-yellow) {
+  background: #eef6ff;
+}
+
+/* =========================
+   Falling counter animation
+   ========================= */
+
+.connect-board {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 
+  This layer sits on top of the board.
+  It matches the same 7-column and 6-row layout,
+  but it does not affect the real board grid.
+*/
+.falling-layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 6px;
+  padding: 10px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.falling-counter {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: counterDrop 0.85s ease-in forwards;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15);
+}
+
+@keyframes counterDrop {
+  0% {
+    transform: translateY(-360px);
+  }
+
+  80% {
+    transform: translateY(8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Sound button
+   ========================= */
+
+.sound-toggle {
+  margin-top: 16px;
+  border: 2px solid #9dd8cc;
+  background: #dff4ef;
+  color: #1f6f61;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sound-toggle:hover {
+  background: #ccece5;
+}
+
+/* =========================
+   Winning counters
+   ========================= */
+
+.winning-cell {
+  animation: winningPulse 1s ease-in-out infinite;
+  box-shadow:
+    0 0 0 4px #ffffff,
+    0 0 18px rgba(255, 255, 255, 0.95);
+}
+
+@keyframes winningPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
