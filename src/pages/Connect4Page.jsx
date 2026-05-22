@@ -176,17 +176,19 @@ function Connect4Page({ onBackToGames }) {
   return (
     <main className="connect-page">
       <header className="connect-header">
-        <button className="back-button" onClick={onBackToGames}>
-          ← Back to Games
-        </button>
+  <div className="connect-header-actions">
+    <button className="back-button" onClick={onBackToGames}>
+      ← Back to Games
+    </button>
 
-        <h1>Connect 4</h1>
-        <p>You are red. The phone is yellow.</p>
+    <button className="sound-toggle" onClick={handleSoundToggle}>
+      {soundOn ? "Sound: On" : "Sound: Off"}
+    </button>
+  </div>
 
-        <button className="sound-toggle" onClick={handleSoundToggle}>
-          {soundOn ? "Sound: On" : "Sound: Off"}
-        </button>
-      </header>
+  <h1>Connect 4</h1>
+  <p>You are red. The phone is yellow.</p>
+</header>
 
       <section className="connect-game-card">
         <p className="turn-message">{turnMessage}</p>
@@ -199,9 +201,14 @@ function Connect4Page({ onBackToGames }) {
           winningCells={winningCells}
         />
 
-        <p className="game-instruction">
-          Tap a column to drop your counter.
-        </p>
+        <div className="how-to-play-box">
+  <h2>How to play</h2>
+  <ol>
+    <li>You are red.</li>
+    <li>Tap a column to drop your counter.</li>
+    <li>Try to get 4 in a row.</li>
+  </ol>
+</div>
 
         <button
           className="new-game-button"
