@@ -1,14 +1,15 @@
 export const gamesList = [
-{
-  id: "connect4",
-  name: "Connect 4",
-  description: "Drop counters, block the phone, and try to get 4 in a row.",
-  status: "available",
-  buttonText: "Play",
-  icon: `${import.meta.env.BASE_URL}icons/connect4-game-icon.png`,
-  iconType: "image",
-  label: "Ready to play",
-},
+  {
+    id: "connect4",
+    name: "Connect 4",
+    description:
+      "Drop counters and try to get four in a row before the computer does.",
+    status: "available",
+    buttonText: "Play",
+    icon: "icons/connect4-game-icon.png",
+    iconType: "image",
+    label: "Ready to play",
+  },
   {
     id: "solitaire",
     name: "Solitaire",
@@ -16,6 +17,7 @@ export const gamesList = [
     status: "coming-soon",
     buttonText: "Coming soon",
     icon: "♠️",
+    iconType: "emoji",
     label: "Coming later",
   },
   {
@@ -24,7 +26,8 @@ export const gamesList = [
     description: "Turn cards over and find the matching pairs.",
     status: "coming-soon",
     buttonText: "Coming soon",
-    icon: "🧠",
+    icon: "🃏",
+    iconType: "emoji",
     label: "Coming later",
   },
 ];

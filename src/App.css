@@ -111,7 +111,8 @@
 .game-card {
   position: relative;
   overflow: hidden;
-  text-align: left;
+  text-align: center;
+  padding: clamp(24px, 3vw, 34px);
 }
 
 .game-card-featured {
@@ -121,57 +122,35 @@
   border-color: rgba(100, 40, 215, 0.22);
 }
 
-.game-card-featured::after {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  right: -48px;
-  bottom: -48px;
-  border-radius: 50%;
-  background: rgba(100, 40, 215, 0.08);
+.game-card-muted {
+  opacity: 0.72;
 }
 
-.game-card-top-row {
-  position: relative;
-  z-index: 1;
-
+.game-card-icon-area {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 18px;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .game-card-icon {
-  width: 68px;
-  height: 68px;
-  border-radius: 22px;
+  width: 118px;
+  height: 118px;
+  border-radius: 32px;
   background: linear-gradient(180deg, var(--blue) 0%, var(--blue-dark) 100%);
   color: #ffffff;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-size: 1.7rem;
+  font-size: 3rem;
   box-shadow:
-    inset 0 3px 5px rgba(255, 255, 255, 0.18),
-    0 10px 18px rgba(18, 12, 53, 0.18);
+    inset 0 4px 6px rgba(255, 255, 255, 0.18),
+    0 14px 24px rgba(18, 12, 53, 0.2);
 }
 
-.game-card-label {
-  border-radius: 999px;
-  padding: 8px 12px;
-  background: var(--purple-soft);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.game-card-label-ready {
-  background: rgba(100, 40, 215, 0.12);
-  color: var(--purple-dark);
+.game-card-icon img {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
 }
 
 .game-card-content {
@@ -179,18 +158,39 @@
   z-index: 1;
 }
 
-.game-card-content h2 {
-  margin-bottom: 8px;
+.game-card-label {
+  display: inline-flex;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: var(--purple-soft);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-weight: 800;
 }
 
-.game-card-content p {
+.game-card-label-ready {
+  background: rgba(100, 40, 215, 0.14);
+  color: var(--purple-dark);
+}
+
+.game-card h2 {
+  font-size: 2.15rem;
+  margin: 0 0 10px;
+  color: var(--text-main);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.game-card p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.5;
   margin: 0;
-  line-height: 1.45;
 }
 
 .game-card button {
-  position: relative;
-  z-index: 1;
+  margin-top: 20px;
 }
 
 /* =========================
@@ -985,8 +985,3 @@ input:focus-visible {
   margin: 0;
 }
 
-.game-card-icon img {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-}
