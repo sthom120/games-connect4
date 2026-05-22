@@ -1,8 +1,31 @@
+import { useState } from "react";
+
 import GameCard from "../components/GameCard";
 import MessageButton from "../components/MessageButton";
+import HelpContactSetup from "../components/HelpContactSetup";
+
 import { gamesList } from "../data/gamesList";
+import {
+  getSavedHelpContact,
+  saveHelpContact,
+  clearHelpContact,
+} from "../utils/helpContactStorage";
 
 function GamesDashboard({ onSelectGame }) {
+  const [helperContact, setHelperContact] = useState(() =>
+    getSavedHelpContact()
+  );
+
+  function handleSaveHelpContact(newContact) {
+    saveHelpContact(newContact);
+    setHelperContact(newContact);
+  }
+
+  function handleChangeHelpContact() {
+    clearHelpContact();
+    setHelperContact(null);
+  }
+
   return (
     <main className="dashboard">
       <header className="dashboard-header">
@@ -20,7 +43,14 @@ function GamesDashboard({ onSelectGame }) {
         ))}
       </div>
 
-      <MessageButton />
+      {helperContact ? (
+        <MessageButton
+          helperContact={helperContact}
+          onChangeContact={handleChangeHelpContact}
+        />
+      ) : (
+        <HelpContactSetup onSave={handleSaveHelpContact} />
+      )}
     </main>
   );
 }
