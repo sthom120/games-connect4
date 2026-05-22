@@ -8,22 +8,38 @@ function GameCard({ game, onSelect }) {
   }
 
   return (
-    <section
-      className={`game-card ${!isAvailable ? "game-card-muted" : ""}`}
-      onClick={handleClick}
+    <article
+      className={
+        isAvailable
+          ? "game-card game-card-featured"
+          : "game-card game-card-muted"
+      }
     >
-      <div className="connect-icon">
-        <span className="red-counter"></span>
-        <span className="yellow-counter"></span>
+      <div className="game-card-top-row">
+        <div className="game-card-icon" aria-hidden="true">
+          {game.icon}
+        </div>
+
+        <span
+          className={
+            isAvailable
+              ? "game-card-label game-card-label-ready"
+              : "game-card-label"
+          }
+        >
+          {game.label}
+        </span>
       </div>
 
-      <h2>{game.name}</h2>
-      <p>{game.description}</p>
+      <div className="game-card-content">
+        <h2>{game.name}</h2>
+        <p>{game.description}</p>
+      </div>
 
-      <button disabled={!isAvailable} onClick={handleClick}>
+      <button type="button" onClick={handleClick} disabled={!isAvailable}>
         {game.buttonText}
       </button>
-    </section>
+    </article>
   );
 }
 
