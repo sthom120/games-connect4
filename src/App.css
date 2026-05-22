@@ -1,21 +1,170 @@
-/* 
+/* =========================
+   Games app styling
+   ========================= */
+
+/*
   Main app styling for the Games app.
-  The aim is to make the screen calm, clear, and easy to use.
+
+  The aim is to make the screen:
+  - calm
+  - clear
+  - easy to read
+  - easy to tap on a phone or tablet
 */
+
+:root {
+  --page-bg: #f8f3ea;
+  --card-bg: #ffffff;
+
+  --text-main: #1f2933;
+  --text-muted: #5f6c7b;
+
+  --border-soft: #e1d8cc;
+  --shadow-soft: 0 8px 20px rgba(31, 41, 51, 0.08);
+
+  --blue: #2f80ed;
+  --blue-dark: #1f6ed4;
+  --blue-soft: #eef6ff;
+  --blue-soft-hover: #dceeff;
+  --blue-border: #9bb7d4;
+  --blue-focus: #bfdbfe;
+
+  --green-soft: #dff4ef;
+  --green-soft-hover: #ccece5;
+  --green-text: #1f6f61;
+  --green-border: #9dd8cc;
+
+  --cream: #fffaf0;
+  --cream-border: #ead8b8;
+
+  --red-counter: #d94f45;
+  --red-counter-border: #b93d36;
+
+  --yellow-counter: #f2c94c;
+  --yellow-counter-border: #d6a92f;
+
+  --disabled-bg: #d1d5db;
+  --disabled-text: #4b5563;
+
+  --danger-text: #b42318;
+}
+
+/* =========================
+   Page layout
+   ========================= */
 
 .app {
   min-height: 100vh;
-  background: #f8f3ea;
-  color: #1f2933;
+  background: var(--page-bg);
+  color: var(--text-main);
   display: flex;
   justify-content: center;
   padding: 24px;
 }
 
-.dashboard {
+.dashboard,
+.connect-page {
   width: 100%;
   max-width: 420px;
 }
+
+/* =========================
+   Shared card styles
+   ========================= */
+
+.game-card,
+.connect-game-card,
+.help-contact-setup {
+  background: var(--card-bg);
+  border: 2px solid var(--border-soft);
+  border-radius: 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.game-card {
+  padding: 28px;
+  text-align: center;
+}
+
+.connect-game-card {
+  padding: 24px;
+  text-align: center;
+}
+
+.game-card-muted {
+  opacity: 0.6;
+}
+
+/* =========================
+   Shared button styles
+   ========================= */
+
+.game-card button,
+.new-game-button,
+.save-helper-button,
+.message-button {
+  width: 100%;
+  border-radius: 999px;
+  padding: 18px 24px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.game-card button,
+.new-game-button,
+.save-helper-button {
+  border: none;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+}
+
+.game-card button {
+  margin-top: 16px;
+  font-size: 1.3rem;
+}
+
+.game-card button:hover,
+.new-game-button:hover,
+.save-helper-button:hover {
+  background: var(--blue-dark);
+}
+
+.game-card button:disabled,
+.new-game-button:disabled,
+.save-helper-button:disabled {
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+}
+
+.back-button,
+.sound-toggle,
+.column-button,
+.difficulty-button,
+.change-helper-button {
+  cursor: pointer;
+}
+
+.back-button,
+.sound-toggle {
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Clear keyboard focus for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 4px solid var(--blue-focus);
+  outline-offset: 3px;
+}
+
+/* =========================
+   Dashboard
+   ========================= */
 
 .dashboard-header {
   margin-bottom: 24px;
@@ -29,7 +178,7 @@
 .dashboard-header p {
   font-size: 1.2rem;
   margin-top: 8px;
-  color: #5f6c7b;
+  color: var(--text-muted);
 }
 
 .games-list {
@@ -38,18 +187,19 @@
   gap: 18px;
 }
 
-.game-card {
-  background: #ffffff;
-  border: 2px solid #e1d8cc;
-  border-radius: 28px;
-  padding: 28px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.08);
+.game-card h2 {
+  font-size: 2rem;
+  margin: 0;
 }
 
-.game-card-muted {
-  opacity: 0.6;
+.game-card p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
 }
+
+/* =========================
+   Dashboard Connect 4 icon
+   ========================= */
 
 .connect-icon {
   display: flex;
@@ -67,74 +217,36 @@
 }
 
 .red-counter {
-  background: #d94f45;
+  background: var(--red-counter);
 }
 
 .yellow-counter {
-  background: #f2c94c;
+  background: var(--yellow-counter);
 }
 
-.game-card h2 {
-  font-size: 2rem;
-  margin: 0;
-}
-
-.game-card p {
-  font-size: 1.1rem;
-  color: #5f6c7b;
-}
-
-.game-card button,
-.message-button {
-  margin-top: 16px;
-  width: 100%;
-  border: none;
-  border-radius: 999px;
-  padding: 18px 24px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.game-card button {
-  background: #2f80ed;
-  color: white;
-}
-
-.game-card button:hover {
-  background: #1f6ed4;
-}
-
-.game-card button:disabled {
-  background: #d1d5db;
-  color: #4b5563;
-  cursor: not-allowed;
-}
+/* =========================
+   Help message button
+   ========================= */
 
 .message-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 24px;
   text-align: center;
   text-decoration: none;
-  background: #dff4ef;
-  color: #1f6f61;
-  border: 2px solid #9dd8cc;
-  margin-top: 24px;
+  background: var(--green-soft);
+  color: var(--green-text);
+  border: 2px solid var(--green-border);
 }
 
 .message-button:hover {
-  background: #ccece5;
+  background: var(--green-soft-hover);
 }
 
 /* =========================
-   Connect 4 page
+   Connect 4 page header
    ========================= */
-
-.connect-page {
-  width: 100%;
-  max-width: 420px;
-}
 
 .connect-header {
   margin-bottom: 24px;
@@ -147,7 +259,7 @@
 
 .connect-header p {
   font-size: 1.1rem;
-  color: #5f6c7b;
+  color: var(--text-muted);
   margin-top: 8px;
 }
 
@@ -158,33 +270,29 @@
   align-items: center;
 }
 
-.back-button,
-.sound-toggle {
-  border-radius: 999px;
-  padding: 12px 16px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
 .back-button {
-  border: 2px solid #bfdbfe;
-  background: #eef6ff;
-  color: #1f6ed4;
+  border: 2px solid var(--blue-focus);
+  background: var(--blue-soft);
+  color: var(--blue-dark);
 }
 
 .back-button:hover {
-  background: #dceeff;
+  background: var(--blue-soft-hover);
 }
 
-.connect-game-card {
-  background: #ffffff;
-  border: 2px solid #e1d8cc;
-  border-radius: 28px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.08);
+.sound-toggle {
+  border: 2px solid var(--green-border);
+  background: var(--green-soft);
+  color: var(--green-text);
 }
+
+.sound-toggle:hover {
+  background: var(--green-soft-hover);
+}
+
+/* =========================
+   Connect 4 game messages
+   ========================= */
 
 .turn-message {
   font-size: 1.5rem;
@@ -201,31 +309,60 @@
   line-height: 1.2;
 }
 
-
 .game-instruction {
   font-size: 1.1rem;
-  color: #5f6c7b;
+  color: var(--text-muted);
   margin: 20px 0;
 }
 
-.new-game-button {
-  width: 100%;
-  border: none;
-  border-radius: 999px;
-  padding: 18px 24px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  background: #2f80ed;
-  color: white;
-  cursor: pointer;
+/* =========================
+   Difficulty buttons
+   ========================= */
+
+.difficulty-panel {
+  margin: 18px 0;
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--cream);
+  border: 2px solid var(--cream-border);
+  text-align: left;
 }
 
-.new-game-button:hover {
-  background: #1f6ed4;
+.difficulty-label {
+  margin: 0 0 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.difficulty-button {
+  flex: 1;
+  border: 2px solid var(--blue-border);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--text-main);
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.difficulty-button-active {
+  background: var(--blue);
+  border-color: var(--blue-dark);
+  color: #ffffff;
+}
+
+.difficulty-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* =========================
-   Connect 4 board
+   Connect 4 board area
    ========================= */
 
 .connect-board-area {
@@ -240,18 +377,17 @@
 }
 
 .column-button {
-  border: 2px solid #9bb7d4;
-  background: #eef6ff;
-  color: #2f80ed;
+  border: 2px solid var(--blue-border);
+  background: var(--blue-soft);
+  color: var(--blue);
   border-radius: 999px;
   min-height: 42px;
   font-size: 1.3rem;
   font-weight: 800;
-  cursor: pointer;
 }
 
 .column-button:hover {
-  background: #dceeff;
+  background: var(--blue-soft-hover);
 }
 
 .column-button:disabled {
@@ -259,12 +395,22 @@
   cursor: not-allowed;
 }
 
+.column-button-highlighted {
+  background: var(--blue-soft-hover);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
 .connect-board {
+  position: relative;
+  overflow: hidden;
+
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 6px;
-  background: #2f80ed;
-  border: 4px solid #1f6ed4;
+
+  background: var(--blue);
+  border: 4px solid var(--blue-dark);
   border-radius: 24px;
   padding: 10px;
 }
@@ -277,23 +423,13 @@
 }
 
 .cell-red {
-  background: #d94f45;
-  border-color: #b93d36;
+  background: var(--red-counter);
+  border-color: var(--red-counter-border);
 }
 
 .cell-yellow {
-  background: #f2c94c;
-  border-color: #d6a92f;
-}
-
-/* =========================
-   Column highlighting
-   ========================= */
-
-.column-button-highlighted {
-  background: #dceeff;
-  border-color: #2f80ed;
-  transform: translateY(-2px);
+  background: var(--yellow-counter);
+  border-color: var(--yellow-counter-border);
 }
 
 .cell-highlighted-column {
@@ -301,23 +437,19 @@
 }
 
 .connect-cell.cell-highlighted-column:not(.cell-red):not(.cell-yellow) {
-  background: #eef6ff;
+  background: var(--blue-soft);
 }
 
 /* =========================
    Falling counter animation
    ========================= */
 
-.connect-board {
-  position: relative;
-  overflow: hidden;
-}
-
-/* 
+/*
   This layer sits on top of the board.
   It matches the same 7-column and 6-row layout,
   but it does not affect the real board grid.
 */
+
 .falling-layer {
   position: absolute;
   inset: 0;
@@ -353,20 +485,6 @@
 }
 
 /* =========================
-   Sound button
-   ========================= */
-
-.sound-toggle {
-  border: 2px solid #9dd8cc;
-  background: #dff4ef;
-  color: #1f6f61;
-}
-
-.sound-toggle:hover {
-  background: #ccece5;
-}
-
-/* =========================
    Winning counters
    ========================= */
 
@@ -397,8 +515,8 @@
 
 .how-to-play-box {
   margin: 20px 0;
-  background: #fffaf0;
-  border: 2px solid #ead8b8;
+  background: var(--cream);
+  border: 2px solid var(--cream-border);
   border-radius: 20px;
   padding: 16px 18px;
   text-align: left;
@@ -426,11 +544,7 @@
 
 .help-contact-setup {
   margin-top: 24px;
-  background: #ffffff;
-  border: 2px solid #e1d8cc;
-  border-radius: 28px;
   padding: 24px;
-  box-shadow: 0 8px 20px rgba(31, 41, 51, 0.08);
 }
 
 .help-contact-setup h2 {
@@ -439,7 +553,7 @@
 }
 
 .help-contact-setup p {
-  color: #5f6c7b;
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
@@ -457,36 +571,21 @@
 }
 
 .help-contact-setup input {
-  border: 2px solid #d1d5db;
+  border: 2px solid var(--disabled-bg);
   border-radius: 16px;
   padding: 14px 16px;
   font-size: 1.1rem;
 }
 
 .help-contact-setup input:focus {
-  outline: 3px solid #bfdbfe;
-  border-color: #2f80ed;
+  outline: 3px solid var(--blue-focus);
+  border-color: var(--blue);
 }
 
 .setup-error-message {
-  color: #b42318;
+  color: var(--danger-text);
   font-weight: 700;
   margin: 0;
-}
-
-.save-helper-button {
-  border: none;
-  border-radius: 999px;
-  padding: 18px 24px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  background: #2f80ed;
-  color: white;
-  cursor: pointer;
-}
-
-.save-helper-button:hover {
-  background: #1f6ed4;
 }
 
 .message-area {
@@ -502,9 +601,69 @@
   margin-top: 10px;
   border: none;
   background: transparent;
-  color: #5f6c7b;
+  color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 700;
-  cursor: pointer;
   text-decoration: underline;
+}
+
+/* =========================
+   Smaller phone screens
+   ========================= */
+
+@media (max-width: 430px) {
+  .app {
+    padding: 16px;
+  }
+
+  .dashboard-header h1,
+  .connect-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .game-card,
+  .connect-game-card,
+  .help-contact-setup {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .connect-board,
+  .falling-layer {
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .column-buttons {
+    gap: 4px;
+  }
+
+  .column-button {
+    min-height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .turn-message {
+    font-size: 1.3rem;
+  }
+}
+
+/* =========================
+   Reduced motion accessibility
+   ========================= */
+
+/*
+  If a user has reduced motion turned on in their device settings,
+  the app should avoid strong animations.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  .falling-counter,
+  .winning-cell {
+    animation: none;
+  }
+
+  .column-button-highlighted {
+    transform: none;
+  }
 }

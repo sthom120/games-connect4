@@ -26,6 +26,7 @@ function Connect4Page({ onBackToGames }) {
   const [gameOver, setGameOver] = useState(false);
   const [fallingCounter, setFallingCounter] = useState(null);
   const [winningCells, setWinningCells] = useState(null);
+const [difficulty, setDifficulty] = useState("normal");
 
   const [soundOn, setSoundOn] = useState(() => {
     const savedSoundSetting = localStorage.getItem("games-sound-on");
@@ -109,7 +110,7 @@ function Connect4Page({ onBackToGames }) {
       setIsPhoneThinking(true);
 
       setTimeout(() => {
-        const phoneColumn = choosePhoneMove(boardAfterPlayerMove);
+        const phoneColumn = choosePhoneMove(boardAfterPlayerMove, difficulty);
 
         if (phoneColumn === null) {
           setTurnMessage("It’s a draw.");
@@ -187,7 +188,39 @@ function Connect4Page({ onBackToGames }) {
   </div>
 
   <h1>Connect 4</h1>
+
   <p>You are red. The phone is yellow.</p>
+  <section className="difficulty-panel" aria-label="Choose phone skill level">
+  <p className="difficulty-label">Phone skill</p>
+
+  <div className="difficulty-buttons">
+    <button
+      type="button"
+      className={
+        difficulty === "easy"
+          ? "difficulty-button difficulty-button-active"
+          : "difficulty-button"
+      }
+      onClick={() => setDifficulty("easy")}
+      disabled={isBusy}
+    >
+      Easy
+    </button>
+
+    <button
+      type="button"
+      className={
+        difficulty === "normal"
+          ? "difficulty-button difficulty-button-active"
+          : "difficulty-button"
+      }
+      onClick={() => setDifficulty("normal")}
+      disabled={isBusy}
+    >
+      Normal
+    </button>
+  </div>
+</section>
 </header>
 
       <section className="connect-game-card">
