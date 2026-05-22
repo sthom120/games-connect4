@@ -1,11 +1,12 @@
 {
   "name": "Games",
   "short_name": "Games",
-  "description": "A simple games app with Connect 4.",
+  "description": "A simple, friendly games app with Connect 4.",
   "start_url": ".",
+  "scope": ".",
   "display": "standalone",
-  "background_color": "#f8f3ea",
-  "theme_color": "#f8f3ea",
+  "background_color": "#f7f5fb",
+  "theme_color": "#6428d7",
   "icons": [
     {
       "src": "games-icon.svg",
