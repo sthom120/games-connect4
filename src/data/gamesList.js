@@ -1,13 +1,14 @@
 export const gamesList = [
-  {
-    id: "connect4",
-    name: "Connect 4",
-    description: "Drop counters, block the phone, and try to get 4 in a row.",
-    status: "available",
-    buttonText: "Play",
-    icon: "🔴🟡",
-    label: "Ready to play",
-  },
+{
+  id: "connect4",
+  name: "Connect 4",
+  description: "Drop counters, block the phone, and try to get 4 in a row.",
+  status: "available",
+  buttonText: "Play",
+  icon: `${import.meta.env.BASE_URL}icons/connect4-game-icon.png`,
+  iconType: "image",
+  label: "Ready to play",
+},
   {
     id: "solitaire",
     name: "Solitaire",

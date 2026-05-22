@@ -984,3 +984,9 @@ input:focus-visible {
 .page-icon-heading p {
   margin: 0;
 }
+
+.game-card-icon img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}

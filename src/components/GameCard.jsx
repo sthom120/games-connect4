@@ -17,8 +17,12 @@ function GameCard({ game, onSelect }) {
     >
       <div className="game-card-top-row">
         <div className="game-card-icon" aria-hidden="true">
-          {game.icon}
-        </div>
+  {game.iconType === "image" ? (
+    <img src={game.icon} alt="" />
+  ) : (
+    game.icon
+  )}
+</div>
 
         <span
           className={
