@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Connect4Board from "../games/connect4/Connect4Board";
 import {
   createEmptyBoard,
@@ -16,12 +16,18 @@ import {
   playDrawSound,
 } from "../utils/soundEffects";
 
-// These values control the timing of the small pauses/animations.
+// These values control the timing of the small pauses and animations.
 // Keeping them here makes them easy to adjust later.
 const DROP_ANIMATION_TIME = 850;
 const PHONE_THINKING_TIME = 600;
 
-function Connect4Page({ onBackToGames }) {
+function Connect4Page({
+  onBackToGames,
+  soundOn,
+  onSoundToggle,
+  difficulty,
+  onDifficultyChange,
+}) {
   // The main Connect 4 board.
   // Each cell is either empty, red, or yellow.
   const [board, setBoard] = useState(createEmptyBoard());
@@ -42,29 +48,8 @@ function Connect4Page({ onBackToGames }) {
   // Stores the four winning cells so they can be highlighted.
   const [winningCells, setWinningCells] = useState(null);
 
-  // Controls how smart the phone player is.
-  // Easy is friendlier. Normal is more strategic.
-  const [difficulty, setDifficulty] = useState("normal");
-
-  // Sound setting is saved on the device.
-  // This means the app remembers the choice next time it opens.
-  const [soundOn, setSoundOn] = useState(() => {
-    const savedSoundSetting = localStorage.getItem("games-sound-on");
-
-    if (savedSoundSetting === null) {
-      return true;
-    }
-
-    return savedSoundSetting === "true";
-  });
-
   // The board is busy while a counter is falling or the phone is thinking.
   const isBusy = isPhoneThinking || fallingCounter !== null;
-
-  // Save the sound setting whenever it changes.
-  useEffect(() => {
-    localStorage.setItem("games-sound-on", soundOn.toString());
-  }, [soundOn]);
 
   // Checks whether a move has ended the game.
   // This is used after both the player's move and the phone's move.
@@ -201,11 +186,6 @@ function Connect4Page({ onBackToGames }) {
     setWinningCells(null);
   }
 
-  // Turns sound on or off.
-  function handleSoundToggle() {
-    setSoundOn((currentSoundSetting) => !currentSoundSetting);
-  }
-
   return (
     <main className="connect-page">
       <header className="connect-header">
@@ -222,7 +202,7 @@ function Connect4Page({ onBackToGames }) {
           <button
             type="button"
             className="sound-toggle"
-            onClick={handleSoundToggle}
+            onClick={onSoundToggle}
           >
             <span aria-hidden="true">{soundOn ? "🔊" : "🔇"}</span>
             {soundOn ? "Sound On" : "Sound Off"}
@@ -247,7 +227,7 @@ function Connect4Page({ onBackToGames }) {
                   ? "difficulty-button difficulty-button-active"
                   : "difficulty-button"
               }
-              onClick={() => setDifficulty("easy")}
+              onClick={() => onDifficultyChange("easy")}
               disabled={isBusy}
             >
               Easy
@@ -260,7 +240,7 @@ function Connect4Page({ onBackToGames }) {
                   ? "difficulty-button difficulty-button-active"
                   : "difficulty-button"
               }
-              onClick={() => setDifficulty("normal")}
+              onClick={() => onDifficultyChange("normal")}
               disabled={isBusy}
             >
               Normal
