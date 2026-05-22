@@ -1,0 +1,11 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Easy difficulty</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <path d="M128 52l22 45 50 7-36 35 9 50-45-24-45 24 9-50-36-35 50-7 22-45z" fill="url(#star1)"/>
+  <defs>
+    <linearGradient id="star1" x1="78" y1="52" x2="180" y2="192" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A56BFF"/>
+      <stop offset="1" stop-color="#4B1FAA"/>
+    </linearGradient>
+  </defs>
+</svg>

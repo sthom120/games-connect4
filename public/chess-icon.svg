@@ -1,0 +1,8 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Chess</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <path d="M87 188h88v20H87v-20z" fill="#4B1FAA"/>
+  <path d="M105 160h52l12 28H93l12-28z" fill="#6428D7"/>
+  <path d="M95 78c8-26 42-34 68-17 22 15 22 46-4 59l-21 11 19 29h-57l-6-30 23-21c-18 0-31-11-22-31z" fill="#4B1FAA"/>
+  <circle cx="137" cy="75" r="7" fill="#F1EAFD"/>
+</svg>

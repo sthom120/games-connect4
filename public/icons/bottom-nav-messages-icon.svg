@@ -1,0 +1,6 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Messages navigation</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <path d="M58 114c0-35 31-62 70-62s70 27 70 62-31 62-70 62c-8 0-16-1-24-4l-40 22 12-39c-11-11-18-25-18-41z" fill="#6428D7"/>
+  <circle cx="100" cy="114" r="7" fill="#FFFFFF"/><circle cx="128" cy="114" r="7" fill="#FFFFFF"/><circle cx="156" cy="114" r="7" fill="#FFFFFF"/>
+</svg>

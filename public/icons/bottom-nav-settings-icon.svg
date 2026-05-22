@@ -1,0 +1,6 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Settings navigation</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <path d="M128 58l12 9 16-4 10 17-7 14 9 13 16 3v28l-16 3-9 13 7 14-10 17-16-4-12 9-12-9-16 4-10-17 7-14-9-13-16-3v-28l16-3 9-13-7-14 10-17 16 4 12-9z" fill="#6428D7"/>
+  <circle cx="128" cy="128" r="26" fill="#F1EAFD"/>
+</svg>

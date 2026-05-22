@@ -1,0 +1,8 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Cards</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <rect x="74" y="60" width="80" height="124" rx="14" transform="rotate(-12 74 60)" fill="#FFFFFF" stroke="#DED8EF" stroke-width="6"/>
+  <rect x="112" y="72" width="80" height="124" rx="14" transform="rotate(10 112 72)" fill="#FFFFFF" stroke="#DED8EF" stroke-width="6"/>
+  <path d="M119 103c0-14 22-14 22 0 0 14-22 27-22 27s-22-13-22-27c0-14 22-14 22 0z" fill="#120C35"/>
+  <path d="M156 122c-10-14-30-3-22 13 5 11 22 21 22 21s17-10 22-21c8-16-12-27-22-13z" fill="#F04438"/>
+</svg>

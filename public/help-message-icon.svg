@@ -1,0 +1,14 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Help message</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <path d="M58 116c0-38 32-68 72-68s72 30 72 68-32 68-72 68c-9 0-18-2-26-5l-43 22 13-42c-10-12-16-27-16-43z" fill="url(#bubble)"/>
+  <circle cx="100" cy="116" r="8" fill="#FFFFFF"/>
+  <circle cx="130" cy="116" r="8" fill="#FFFFFF"/>
+  <circle cx="160" cy="116" r="8" fill="#FFFFFF"/>
+  <defs>
+    <linearGradient id="bubble" x1="58" y1="48" x2="202" y2="201" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8E4BFF"/>
+      <stop offset="1" stop-color="#4B1FAA"/>
+    </linearGradient>
+  </defs>
+</svg>

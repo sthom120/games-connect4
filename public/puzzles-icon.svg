@@ -1,0 +1,5 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Puzzles</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <path d="M70 74h42c0-16 12-26 25-20 13 6 13 24 0 30-7 3-12 9-12 17h39v39c8 0 14 5 17 12 6 13-4 25-20 25v42H70V74z" fill="#6428D7"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Games navigation</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <path d="M76 116c4-24 20-36 52-36s48 12 52 36l12 52c3 15-14 25-26 15l-24-20h-28l-24 20c-12 10-29 0-26-15l12-52z" fill="#6428D7"/>
+  <circle cx="102" cy="124" r="8" fill="#FFFFFF"/><circle cx="154" cy="112" r="7" fill="#FFFFFF"/><circle cx="172" cy="130" r="7" fill="#FFFFFF"/>
+  <path d="M101 107v34M84 124h34" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+</svg>

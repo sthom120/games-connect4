@@ -1,0 +1,7 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Home navigation</title>
+  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
+  <path d="M54 124L128 60l74 64" fill="none" stroke="#6428D7" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M78 116v80h100v-80" fill="#6428D7"/>
+  <rect x="110" y="146" width="36" height="50" rx="6" fill="#F1EAFD"/>
+</svg>
