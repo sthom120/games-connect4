@@ -22,7 +22,49 @@ function findWinningColumn(board, player) {
   return null;
 }
 
-// Checks if playing in a column would accidentally give
+// Chooses a sensible fallback column.
+// The centre is usually strongest in Connect 4.
+function choosePreferredColumn(availableColumns) {
+  const preferredColumns = [3, 2, 4, 1, 5, 0, 6];
+
+  const sensibleColumns = preferredColumns.filter((column) =>
+    availableColumns.includes(column)
+  );
+
+  const randomIndex = Math.floor(Math.random() * sensibleColumns.length);
+
+  return sensibleColumns[randomIndex] ?? null;
+}
+
+// EASY MODE
+// This is the original friendly version.
+// The phone can win and block, but it does not think too far ahead.
+function chooseEasyPhoneMove(board) {
+  const availableColumns = getAvailableColumns(board);
+
+  if (availableColumns.length === 0) {
+    return null;
+  }
+
+  // 1. If the phone can win, it should take that move.
+  const phoneWinningColumn = findWinningColumn(board, PHONE);
+
+  if (phoneWinningColumn !== null) {
+    return phoneWinningColumn;
+  }
+
+  // 2. If the player is about to win, the phone should block.
+  const playerWinningColumn = findWinningColumn(board, PLAYER);
+
+  if (playerWinningColumn !== null) {
+    return playerWinningColumn;
+  }
+
+  // 3. Otherwise, choose from the middle columns first.
+  return choosePreferredColumn(availableColumns);
+}
+
+// Checks whether a move would accidentally give
 // the opponent a winning move straight after.
 function wouldAllowOpponentToWin(board, column, currentPlayer, opponent) {
   const testBoard = dropCounter(board, column, currentPlayer);
@@ -32,8 +74,6 @@ function wouldAllowOpponentToWin(board, column, currentPlayer, opponent) {
 }
 
 // Checks whether a move creates a future winning chance.
-// Example: the phone plays a move, and after that it has
-// a possible winning column on its next turn.
 function findThreatMakingColumn(board, player, possibleColumns) {
   for (const column of possibleColumns) {
     const testBoard = dropCounter(board, column, player);
@@ -47,22 +87,10 @@ function findThreatMakingColumn(board, player, possibleColumns) {
   return null;
 }
 
-// Chooses a sensible fallback column.
-// The centre is usually strongest in Connect 4.
-function choosePreferredColumn(availableColumns) {
-  const preferredColumns = [3, 2, 4, 1, 5, 0, 6];
-
-  for (const column of preferredColumns) {
-    if (availableColumns.includes(column)) {
-      return column;
-    }
-  }
-
-  return availableColumns[0] ?? null;
-}
-
-// The phone chooses its move in a smarter order.
-export function choosePhoneMove(board) {
+// NORMAL MODE
+// This version is more strategic.
+// It tries not to make moves that give the player an easy win.
+function chooseNormalPhoneMove(board) {
   const availableColumns = getAvailableColumns(board);
 
   if (availableColumns.length === 0) {
@@ -88,26 +116,18 @@ export function choosePhoneMove(board) {
     (column) => !wouldAllowOpponentToWin(board, column, PHONE, PLAYER)
   );
 
-  // If every move is dangerous, still choose from the available columns.
+  // If every move is risky, still choose from the available columns.
   const columnsToUse = safeColumns.length > 0 ? safeColumns : availableColumns;
 
   // 4. Try to create a future winning chance for the phone.
-  const phoneThreatColumn = findThreatMakingColumn(
-    board,
-    PHONE,
-    columnsToUse
-  );
+  const phoneThreatColumn = findThreatMakingColumn(board, PHONE, columnsToUse);
 
   if (phoneThreatColumn !== null) {
     return phoneThreatColumn;
   }
 
   // 5. Stop the player from setting up a future winning chance.
-  const playerThreatColumn = findThreatMakingColumn(
-    board,
-    PLAYER,
-    columnsToUse
-  );
+  const playerThreatColumn = findThreatMakingColumn(board, PLAYER, columnsToUse);
 
   if (playerThreatColumn !== null) {
     return playerThreatColumn;
@@ -115,4 +135,15 @@ export function choosePhoneMove(board) {
 
   // 6. Otherwise, choose the strongest available position.
   return choosePreferredColumn(columnsToUse);
+}
+
+// Main function used by the game.
+// Default is normal, so the app will still work even before
+// we add a difficulty button to the screen.
+export function choosePhoneMove(board, difficulty = "normal") {
+  if (difficulty === "easy") {
+    return chooseEasyPhoneMove(board);
+  }
+
+  return chooseNormalPhoneMove(board);
 }
