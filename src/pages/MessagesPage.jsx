@@ -3,6 +3,7 @@ import HelpContactSetup from "../components/HelpContactSetup";
 import MessageButton from "../components/MessageButton";
 import {
   getSavedHelpContact,
+  saveHelpContact,
   clearHelpContact,
 } from "../utils/helpContactStorage";
 
@@ -10,6 +11,7 @@ function MessagesPage() {
   const [helpContact, setHelpContact] = useState(getSavedHelpContact());
 
   function handleHelpContactSaved(savedContact) {
+    saveHelpContact(savedContact);
     setHelpContact(savedContact);
   }
 
