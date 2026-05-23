@@ -14,7 +14,7 @@ function MessageButton({ helperContact, onChangeContact }) {
         className="change-helper-button"
         onClick={onChangeContact}
       >
-        Change help contact
+        Remove Support Contact
       </button>
     </div>
   );

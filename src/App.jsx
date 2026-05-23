@@ -60,11 +60,7 @@ function App() {
           />
         )}
 
-        {currentScreen === "games" && (
-          <GamesDashboard onSelectGame={handleSelectGame} />
-        )}
-
-        {currentScreen === "messages" && <MessagesPage />}
+        {currentScreen === "support" && <MessagesPage />}
 
         {currentScreen === "settings" && (
   <SettingsPage

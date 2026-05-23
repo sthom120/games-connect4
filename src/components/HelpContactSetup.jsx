@@ -26,10 +26,10 @@ function HelpContactSetup({ onSave }) {
 
   return (
     <section className="help-contact-setup">
-      <h2>Set up help message</h2>
+      <h2>Set up support contact</h2>
 
       <p>
-        Add the person this app should message if help is needed. This is saved
+        Add the person this app should message if support is needed. This is saved
         only on this phone.
       </p>
 
@@ -59,7 +59,7 @@ function HelpContactSetup({ onSave }) {
         )}
 
         <button type="submit" className="save-helper-button">
-          Save help contact
+          Save
         </button>
       </form>
     </section>

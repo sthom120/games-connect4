@@ -60,8 +60,8 @@ function SettingsPage({
 
         <div className="settings-row">
           <div>
-            <h2>Helper contact</h2>
-            <p>This will move here later from the home screen.</p>
+            <h2>Support contact</h2>
+            <p>This will move here later from the Games page.</p>
           </div>
         </div>
       </div>

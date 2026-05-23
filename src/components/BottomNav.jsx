@@ -2,17 +2,12 @@ function BottomNav({ currentScreen, onChangeScreen }) {
   const navItems = [
   {
     id: "dashboard",
-    label: "Home",
-    icon: `${import.meta.env.BASE_URL}icons/bottom-nav-home-icon.svg`,
-  },
-  {
-    id: "games",
     label: "Games",
     icon: `${import.meta.env.BASE_URL}icons/bottom-nav-games-icon.svg`,
   },
   {
-    id: "messages",
-    label: "Messages",
+    id: "support",
+    label: "Support",
     icon: `${import.meta.env.BASE_URL}icons/bottom-nav-messages-icon.svg`,
   },
   {

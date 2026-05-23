@@ -195,7 +195,7 @@ function Connect4Page({
             className="back-button"
             onClick={onBackToGames}
           >
-            <span aria-hidden="true">🏠</span>
+            <span aria-hidden="true">←</span>
             Back to Games
           </button>
 

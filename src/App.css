@@ -712,21 +712,32 @@ input:focus-visible {
 
 .message-area {
   margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .message-area .message-button {
   margin-top: 0;
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 1.15rem;
 }
 
 .change-helper-button {
   width: 100%;
-  margin-top: 10px;
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
-  font-size: 0.95rem;
+  margin-top: 0;
+  border: 2px solid var(--border-soft);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--text-main);
+  padding: 16px 20px;
+  font-size: 1.05rem;
   font-weight: 700;
-  text-decoration: underline;
+}
+
+.change-helper-button:hover {
+  background: var(--purple-soft);
 }
 
 /* =========================
@@ -846,17 +857,17 @@ input:focus-visible {
   bottom: 18px;
   transform: translateX(-50%);
 
-  width: min(420px, calc(100% - 32px));
-  max-width: 420px;
+  width: min(500px, calc(100% - 24px));
+  max-width: 500px;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid var(--border-soft);
   border-radius: 28px;
-  padding: 8px;
+  padding: 10px;
 
   box-shadow: 0 14px 32px rgba(18, 12, 53, 0.16);
   backdrop-filter: blur(12px);
@@ -865,19 +876,24 @@ input:focus-visible {
 
 .bottom-nav-button {
   border: none;
-  border-radius: 22px;
+  border-radius: 24px;
   background: transparent;
   color: var(--text-muted);
-  padding: 10px 6px;
+  padding: 12px 8px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 800;
+  line-height: 1.2;
   cursor: pointer;
+}
+
+.bottom-nav-button span {
+  display: block;
 }
 
 .bottom-nav-button.active {
@@ -887,8 +903,8 @@ input:focus-visible {
 }
 
 .bottom-nav-icon {
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
