@@ -1,0 +1,39 @@
+/* =========================
+   Page icon headings
+   ========================= */
+
+/*
+  These styles control the small page icons and larger heading logos.
+*/
+
+.page-icon-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.page-icon-heading img {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+.page-icon-heading h1 {
+  margin: 0 0 8px;
+}
+
+.page-icon-heading p {
+  margin: 0;
+}
+
+.games-heading-logo {
+  display: block;
+  width: min(280px, 90%);
+  margin: 0 auto 8px;
+}
+
+.game-title-logo {
+  display: block;
+  width: min(300px, 95%);
+  margin: 0 auto 12px;
+}

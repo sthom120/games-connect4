@@ -1,0 +1,96 @@
+/* =========================
+   Support / message contact area
+   ========================= */
+
+/*
+  These styles control the support contact form and message button.
+
+  The contact details are saved only on the user's own device.
+*/
+
+.message-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  text-align: center;
+  text-decoration: none;
+  background: var(--green-soft);
+  color: var(--green-text);
+  border: 2px solid var(--green-border);
+}
+
+.message-button:hover {
+  background: var(--green-soft-hover);
+}
+
+.help-contact-setup h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.help-contact-setup p {
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.help-contact-setup form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.help-contact-setup label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.help-contact-setup input {
+  border: 2px solid var(--disabled-bg);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+}
+
+.help-contact-setup input:focus {
+  outline: 3px solid var(--blue-focus);
+  border-color: var(--blue);
+}
+
+.setup-error-message {
+  color: var(--danger-text);
+  font-weight: 700;
+  margin: 0;
+}
+
+.message-area {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.message-area .message-button {
+  margin-top: 0;
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 1.15rem;
+}
+
+.change-helper-button {
+  width: 100%;
+  margin-top: 0;
+  border: 2px solid var(--border-soft);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--text-main);
+  padding: 16px 20px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.change-helper-button:hover {
+  background: var(--purple-soft);
+}

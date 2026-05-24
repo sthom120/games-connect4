@@ -1,0 +1,72 @@
+/* =========================
+   Shared button styles
+   ========================= */
+
+/*
+  These styles keep buttons large, rounded and easy to tap.
+
+  This matters for an elderly-friendly app because tiny buttons are
+  frustrating and easy to miss.
+*/
+
+.game-card button,
+.new-game-button,
+.save-helper-button,
+.message-button {
+  width: 100%;
+  border-radius: 999px;
+  padding: 18px 24px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.game-card button,
+.new-game-button,
+.save-helper-button {
+  border: none;
+  background: linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(100, 40, 215, 0.25);
+}
+
+.game-card button {
+  margin-top: 20px;
+  font-size: 1.3rem;
+}
+
+.game-card button:hover,
+.new-game-button:hover,
+.save-helper-button:hover {
+  background: var(--purple-dark);
+}
+
+.game-card button:disabled,
+.new-game-button:disabled,
+.save-helper-button:disabled {
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.back-button,
+.sound-toggle,
+.column-button,
+.difficulty-button,
+.change-helper-button {
+  cursor: pointer;
+}
+
+.back-button,
+.sound-toggle {
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

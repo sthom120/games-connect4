@@ -1,0 +1,75 @@
+/* =========================
+   Settings page
+   ========================= */
+
+/*
+  These styles control the Settings page.
+
+  Settings should stay simple and clear because this app is intended to be
+  easy to use, not full of complicated options.
+*/
+
+.settings-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-row {
+  background: var(--purple-soft);
+  border: 1px solid var(--border-soft);
+  border-radius: 24px;
+  padding: 18px;
+}
+
+.settings-row h2 {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+}
+
+.settings-row p {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.settings-button {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settings-choice-buttons {
+  display: flex;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.settings-choice-button {
+  flex: 1;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-main);
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settings-choice-button-active {
+  background: linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(100, 40, 215, 0.25);
+}

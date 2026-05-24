@@ -1,0 +1,51 @@
+/* =========================
+   Base theme settings
+   ========================= */
+
+/*
+  These are the main colours and shared design values for the app.
+
+  Keeping them in one place makes it easier to change the app's look later
+  without hunting through every file.
+*/
+
+:root {
+  --page-bg: #f7f5fb;
+  --card-bg: #ffffff;
+
+  --text-main: #120c35;
+  --text-muted: #5f5a78;
+
+  --border-soft: #ded8ef;
+  --shadow-soft: 0 14px 32px rgba(18, 12, 53, 0.12);
+
+  --blue: #121f70;
+  --blue-dark: #08104d;
+  --blue-soft: #eeeafd;
+  --blue-soft-hover: #e1d7fb;
+  --blue-border: #8e78d8;
+  --blue-focus: #c8b7ff;
+
+  --purple: #6428d7;
+  --purple-dark: #4b1faa;
+  --purple-soft: #f1eafd;
+
+  --green-soft: #efeafd;
+  --green-soft-hover: #e2d7fb;
+  --green-text: #32117a;
+  --green-border: #c8b7ff;
+
+  --cream: #f7f4ff;
+  --cream-border: #ded8ef;
+
+  --red-counter: #f04438;
+  --red-counter-border: #b42318;
+
+  --yellow-counter: #f5c542;
+  --yellow-counter-border: #c89416;
+
+  --disabled-bg: #d1d5db;
+  --disabled-text: #4b5563;
+
+  --danger-text: #b42318;
+}
