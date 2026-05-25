@@ -172,40 +172,162 @@
   grid-template-columns: repeat(7, 1fr);
   gap: 6px;
 
-  background: linear-gradient(180deg, var(--blue) 0%, var(--blue-dark) 100%);
-  border: 4px solid var(--blue-dark);
-  border-radius: 26px;
-  padding: 10px;
+  /*
+    The board uses layered gradients to make it feel more like moulded plastic.
+    The top-left is slightly brighter and the lower-right is deeper blue.
+  */
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.22) 0%, transparent 26%),
+    linear-gradient(145deg, #3159ff 0%, var(--blue) 46%, var(--blue-dark) 100%);
+
+  border: 5px solid var(--blue-dark);
+  border-radius: 28px;
+  padding: 12px;
 
   box-shadow:
-    inset 0 4px 8px rgba(255, 255, 255, 0.14),
-    inset 0 -8px 14px rgba(0, 0, 0, 0.25),
-    0 14px 26px rgba(18, 12, 53, 0.22);
+    inset 0 5px 8px rgba(255, 255, 255, 0.18),
+    inset 0 -10px 16px rgba(0, 0, 0, 0.28),
+    inset 4px 0 8px rgba(255, 255, 255, 0.08),
+    0 16px 28px rgba(18, 12, 53, 0.24);
+}
+
+/*
+  These layers add a subtle plastic sheen and inner frame.
+  They sit behind the counters, so they do not block the game pieces.
+*/
+
+.connect-board::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.connect-board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.16), transparent 32%),
+    linear-gradient(300deg, rgba(0, 0, 0, 0.12), transparent 38%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .connect-cell {
+  position: relative;
+  z-index: 1;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #ffffff;
-  border: 3px solid #dbeafe;
+  overflow: hidden;
+
+  /*
+    Empty holes should look slightly inset, like openings in a plastic frame,
+    rather than flat white circles.
+  */
+  background:
+    radial-gradient(circle at 48% 42%, #ffffff 0%, #f9fbff 42%, #d7e5ff 72%, #9eb9f2 100%);
+
+  border: 3px solid rgba(8, 16, 77, 0.28);
+
+  box-shadow:
+    inset 0 5px 8px rgba(8, 16, 77, 0.28),
+    inset 0 -4px 5px rgba(255, 255, 255, 0.86),
+    0 2px 3px rgba(255, 255, 255, 0.12);
+}
+
+/*
+  Extra detail for empty holes only.
+
+  This adds a darker lower edge and soft highlight, which helps each opening
+  feel like it has depth.
+*/
+
+.connect-cell:not(.cell-red):not(.cell-yellow)::before {
+  content: "";
+  position: absolute;
+  inset: 7%;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 5px 7px rgba(8, 16, 77, 0.2),
+    inset 0 -3px 4px rgba(255, 255, 255, 0.8);
+}
+
+.connect-cell:not(.cell-red):not(.cell-yellow)::after {
+  content: "";
+  position: absolute;
+  top: 12%;
+  left: 18%;
+  width: 42%;
+  height: 22%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.38);
+  transform: rotate(-18deg);
+}
+
+/*
+  Red and yellow counters are styled to look more like real plastic tokens.
+
+  The layered gradients create:
+  - a small top highlight
+  - a raised outer rim
+  - a softer inner centre
+  - a darker lower edge
+*/
+
+.cell-red,
+.cell-yellow {
+  border-width: 2px;
+  box-shadow:
+    inset 0 4px 5px rgba(255, 255, 255, 0.45),
+    inset 0 -7px 9px rgba(0, 0, 0, 0.22),
+    0 2px 4px rgba(18, 12, 53, 0.22);
 }
 
 .cell-red {
   background:
-    radial-gradient(circle at 35% 28%, #ff8a80 0%, var(--red-counter) 45%, var(--red-counter-border) 100%);
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.55) 0%, transparent 18%),
+    radial-gradient(circle at 50% 52%, #ff6b62 0%, #f04438 48%, #c72f25 72%, #9f1f17 100%);
   border-color: var(--red-counter-border);
-  box-shadow:
-    inset 0 3px 4px rgba(255, 255, 255, 0.35),
-    inset 0 -5px 7px rgba(0, 0, 0, 0.22);
 }
 
 .cell-yellow {
   background:
-    radial-gradient(circle at 35% 28%, #ffe98a 0%, var(--yellow-counter) 45%, var(--yellow-counter-border) 100%);
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.65) 0%, transparent 18%),
+    radial-gradient(circle at 50% 52%, #ffe37a 0%, #f5c542 48%, #d99b19 74%, #ad7410 100%);
   border-color: var(--yellow-counter-border);
+}
+
+/*
+  These pseudo-elements add a subtle moulded ring to the counters.
+  They help the pieces feel more like physical game tokens.
+*/
+
+.cell-red::before,
+.cell-yellow::before {
+  content: "";
+  position: absolute;
+  inset: 13%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.28);
   box-shadow:
-    inset 0 3px 4px rgba(255, 255, 255, 0.4),
-    inset 0 -5px 7px rgba(0, 0, 0, 0.18);
+    inset 0 2px 4px rgba(255, 255, 255, 0.25),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.12);
+}
+
+.cell-red::after,
+.cell-yellow::after {
+  content: "";
+  position: absolute;
+  inset: 30%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.25),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.12);
 }
 
 .cell-highlighted-column {
