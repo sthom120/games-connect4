@@ -23,11 +23,25 @@ function App() {
   });
 
   // This setting controls how smart the phone player is in Connect 4.
-  const [difficulty, setDifficulty] = useState("normal");
+  // This setting controls how smart the phone player is in Connect 4.
+// It is saved on the device so the choice is remembered.
+const [difficulty, setDifficulty] = useState(() => {
+  const savedDifficulty = localStorage.getItem("connect4-difficulty");
+
+  if (savedDifficulty === "easy" || savedDifficulty === "normal") {
+    return savedDifficulty;
+  }
+
+  return "normal";
+});
 
   useEffect(() => {
     localStorage.setItem("games-sound-on", soundOn.toString());
   }, [soundOn]);
+
+  useEffect(() => {
+  localStorage.setItem("connect4-difficulty", difficulty);
+}, [difficulty]);
 
   function handleSelectGame(gameId) {
     if (gameId === "connect4") {
