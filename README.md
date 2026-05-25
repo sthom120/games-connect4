@@ -1,16 +1,114 @@
-# React + Vite
+# Grandma's Games
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Grandma's Games is a simple, elderly-friendly games app built with React and Vite.
 
-Currently, two official plugins are available:
+The app is designed to be easy to read, easy to tap, and comfortable to use on a phone or tablet. It currently includes Connect 4, with space to add more games later.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live app
 
-## React Compiler
+This app is deployed with GitHub Pages.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+If deployed, it should be available from the project’s GitHub Pages link.
 
-## Expanding the ESLint configuration
+## Current features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Games dashboard with large game cards
+- Connect 4 game against the phone
+- Easy and Normal phone skill settings
+- Sound on/off setting
+- Support page with a saved helper contact
+- SMS support message button
+- Bottom navigation for Games, Support and Settings
+- Mobile-friendly layout
+- PWA basics, including manifest and service worker
+- Improved accessibility features
+
+## Connect 4 features
+
+- Player is red
+- Phone is yellow
+- Tap a column to drop a counter
+- Falling counter animation
+- Phone can take a turn automatically
+- Easy and Normal phone skill settings
+- Winning counters are highlighted
+- New Game / Play Again button
+- Sound effects for moves and game results
+- Screen-reader support for game status and board summaries
+
+## Accessibility and elderly-friendly design
+
+This project aims to be friendly for older users and people who may need clearer, simpler interfaces.
+
+Current accessibility and usability features include:
+
+- Large buttons
+- Clear text
+- Calm colours
+- High-contrast game pieces
+- Visible keyboard focus styles
+- Reduced-motion support
+- Screen-reader status messages
+- Screen-reader board summaries for Connect 4
+- `aria-pressed` on toggle buttons
+- `aria-current` on the active navigation item
+
+## Privacy note
+
+The support contact is saved only on the user’s own device using `localStorage`.
+
+No support contact name or phone number is hard-coded into the app.
+
+This is important because the app is stored in a public GitHub repository.
+
+## Project structure
+
+```txt
+src/
+  assets/
+    headings/
+      connect4-heading.png
+      games-heading.png
+
+  components/
+    BottomNav.jsx
+    GameCard.jsx
+    HelpContactSetup.jsx
+    MessageButton.jsx
+
+  data/
+    gamesList.js
+
+  games/
+    connect4/
+      Connect4Board.jsx
+      connect4Logic.js
+      phoneMove.js
+
+  pages/
+    Connect4Page.jsx
+    GamesDashboard.jsx
+    MessagesPage.jsx
+    SettingsPage.jsx
+
+  styles/
+    accessibility.css
+    base.css
+    buttons.css
+    cards.css
+    connect4.css
+    dashboard.css
+    images.css
+    layout.css
+    navigation.css
+    responsive.css
+    settings.css
+    support.css
+
+  utils/
+    helpContactStorage.js
+    soundEffects.js
+
+  App.jsx
+  App.css
+  main.jsx
