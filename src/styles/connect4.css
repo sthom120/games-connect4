@@ -144,7 +144,7 @@
   background: var(--blue-soft);
   color: var(--blue);
   border-radius: 999px;
-  min-height: 42px;
+  min-height: 48px;
   font-size: 1.3rem;
   font-weight: 800;
 }

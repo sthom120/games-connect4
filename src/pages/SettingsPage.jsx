@@ -20,6 +20,7 @@ function SettingsPage({
             type="button"
             className="settings-button"
             onClick={onSoundToggle}
+            aria-pressed={soundOn}
           >
             {soundOn ? "Sound On" : "Sound Off"}
           </button>
@@ -40,6 +41,7 @@ function SettingsPage({
                   : "settings-choice-button"
               }
               onClick={() => onDifficultyChange("easy")}
+              aria-pressed={difficulty === "easy"}
             >
               Easy
             </button>
@@ -52,6 +54,7 @@ function SettingsPage({
                   : "settings-choice-button"
               }
               onClick={() => onDifficultyChange("normal")}
+              aria-pressed={difficulty === "normal"}
             >
               Normal
             </button>

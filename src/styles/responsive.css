@@ -35,9 +35,9 @@
   }
 
   .column-button {
-    min-height: 40px;
-    font-size: 1.1rem;
-  }
+  min-height: 48px;
+  font-size: 1.1rem;
+}
 
   .turn-message {
     font-size: 1.3rem;

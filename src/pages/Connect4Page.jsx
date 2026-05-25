@@ -16,6 +16,24 @@ import {
   playDrawSound,
 } from "../utils/soundEffects";
 
+/*
+  Connect4Page
+
+  This page controls the Connect 4 game screen.
+
+  It keeps track of:
+  - the board
+  - whose turn it is
+  - whether the phone is thinking
+  - whether the game is over
+  - the falling counter animation
+  - the winning cells
+
+  The actual board display is handled by Connect4Board.
+  The game rules are handled by connect4Logic.js.
+  The phone's move choice is handled by phoneMove.js.
+*/
+
 // These values control the timing of the small pauses and animations.
 // Keeping them here makes them easy to adjust later.
 const DROP_ANIMATION_TIME = 850;
@@ -33,12 +51,14 @@ function Connect4Page({
   const [board, setBoard] = useState(createEmptyBoard());
 
   // The message shown above the board.
+  // This changes as the game moves through each turn.
   const [turnMessage, setTurnMessage] = useState("Your turn");
 
   // Stops the player from tapping while the phone is choosing a move.
   const [isPhoneThinking, setIsPhoneThinking] = useState(false);
 
   // Tracks whether the game has finished.
+  // When this is true, the board is disabled until the user starts a new game.
   const [gameOver, setGameOver] = useState(false);
 
   // Used for the falling counter animation.
@@ -49,6 +69,7 @@ function Connect4Page({
   const [winningCells, setWinningCells] = useState(null);
 
   // The board is busy while a counter is falling or the phone is thinking.
+  // This prevents double-taps and accidental moves during animations.
   const isBusy = isPhoneThinking || fallingCounter !== null;
 
   // Checks whether a move has ended the game.
@@ -203,6 +224,7 @@ function Connect4Page({
             type="button"
             className="sound-toggle"
             onClick={onSoundToggle}
+            aria-pressed={soundOn}
           >
             <span aria-hidden="true">{soundOn ? "🔊" : "🔇"}</span>
             {soundOn ? "Sound On" : "Sound Off"}
@@ -229,6 +251,7 @@ function Connect4Page({
               }
               onClick={() => onDifficultyChange("easy")}
               disabled={isBusy}
+              aria-pressed={difficulty === "easy"}
             >
               Easy
             </button>
@@ -242,6 +265,7 @@ function Connect4Page({
               }
               onClick={() => onDifficultyChange("normal")}
               disabled={isBusy}
+              aria-pressed={difficulty === "normal"}
             >
               Normal
             </button>
@@ -250,7 +274,9 @@ function Connect4Page({
       </header>
 
       <section className="connect-game-card">
-        <p className="turn-message">{turnMessage}</p>
+        <p className="turn-message" role="status" aria-live="polite">
+          {turnMessage}
+        </p>
 
         <Connect4Board
           board={board}
