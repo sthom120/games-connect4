@@ -3,6 +3,7 @@ import "./App.css";
 
 import GamesDashboard from "./pages/GamesDashboard";
 import Connect4Page from "./pages/Connect4Page";
+import MarbleSolitairePage from "./pages/MarbleSolitairePage";
 import BottomNav from "./components/BottomNav";
 import SettingsPage from "./pages/SettingsPage";
 import MessagesPage from "./pages/MessagesPage";
@@ -23,29 +24,34 @@ function App() {
   });
 
   // This setting controls how smart the phone player is in Connect 4.
-  // This setting controls how smart the phone player is in Connect 4.
-// It is saved on the device so the choice is remembered.
-const [difficulty, setDifficulty] = useState(() => {
-  const savedDifficulty = localStorage.getItem("connect4-difficulty");
+  // It is saved on the device so the choice is remembered.
+  const [difficulty, setDifficulty] = useState(() => {
+    const savedDifficulty = localStorage.getItem("connect4-difficulty");
 
-  if (savedDifficulty === "easy" || savedDifficulty === "normal") {
-    return savedDifficulty;
-  }
+    if (savedDifficulty === "easy" || savedDifficulty === "normal") {
+      return savedDifficulty;
+    }
 
-  return "normal";
-});
+    return "normal";
+  });
 
+  // Save the sound setting whenever it changes.
   useEffect(() => {
     localStorage.setItem("games-sound-on", soundOn.toString());
   }, [soundOn]);
 
+  // Save the Connect 4 difficulty whenever it changes.
   useEffect(() => {
-  localStorage.setItem("connect4-difficulty", difficulty);
-}, [difficulty]);
+    localStorage.setItem("connect4-difficulty", difficulty);
+  }, [difficulty]);
 
   function handleSelectGame(gameId) {
     if (gameId === "connect4") {
       setCurrentScreen("connect4");
+    }
+
+    if (gameId === "marble-solitaire") {
+      setCurrentScreen("marble-solitaire");
     }
   }
 
@@ -74,24 +80,29 @@ const [difficulty, setDifficulty] = useState(() => {
           />
         )}
 
+        {currentScreen === "marble-solitaire" && (
+          <MarbleSolitairePage onBackToGames={handleBackToGames} />
+        )}
+
         {currentScreen === "support" && <MessagesPage />}
 
         {currentScreen === "settings" && (
-  <SettingsPage
-    soundOn={soundOn}
-    onSoundToggle={handleSoundToggle}
-    difficulty={difficulty}
-    onDifficultyChange={setDifficulty}
-  />
-)}
+          <SettingsPage
+            soundOn={soundOn}
+            onSoundToggle={handleSoundToggle}
+            difficulty={difficulty}
+            onDifficultyChange={setDifficulty}
+          />
+        )}
       </div>
 
-      {currentScreen !== "connect4" && (
-        <BottomNav
-          currentScreen={currentScreen}
-          onChangeScreen={setCurrentScreen}
-        />
-      )}
+      {currentScreen !== "connect4" &&
+        currentScreen !== "marble-solitaire" && (
+          <BottomNav
+            currentScreen={currentScreen}
+            onChangeScreen={setCurrentScreen}
+          />
+        )}
     </div>
   );
 }

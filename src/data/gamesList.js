@@ -10,6 +10,18 @@ export const gamesList = [
     iconType: "image",
     label: "Ready to play",
   },
+
+  {
+  id: "marble-solitaire",
+  name: "Marble Solitaire",
+  description: "Jump marbles over each other and try to leave as few as possible.",
+  status: "available",
+  buttonText: "Play",
+  icon: "icons/marble-solitaire-game-icon.png",
+  iconType: "image",
+  label: "Ready to play",
+},
+
   {
     id: "solitaire",
     name: "Solitaire",
