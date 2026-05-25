@@ -15,7 +15,7 @@ function MessagesPage() {
     setHelpContact(savedContact);
   }
 
-  function handleChangeHelpContact() {
+  function handleRemoveHelpContact() {
     clearHelpContact();
     setHelpContact(null);
   }
@@ -36,12 +36,10 @@ function MessagesPage() {
       </div>
 
       {helpContact ? (
-        <div className="message-area">
-          <MessageButton
-            helperContact={helpContact}
-            onChangeContact={handleChangeHelpContact}
-          />
-        </div>
+        <MessageButton
+          helperContact={helpContact}
+          onRemoveContact={handleRemoveHelpContact}
+        />
       ) : (
         <HelpContactSetup onSave={handleHelpContactSaved} />
       )}

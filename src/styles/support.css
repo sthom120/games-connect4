@@ -94,3 +94,63 @@
 .change-helper-button:hover {
   background: var(--purple-soft);
 }
+
+/* =========================
+   Support contact confirmation
+   ========================= */
+
+/*
+  This makes changing the support contact safer.
+
+  The contact is not removed immediately. The user has to confirm first,
+  which helps prevent accidental taps.
+*/
+
+.contact-confirmation-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  border: 2px solid var(--cream-border);
+  border-radius: 22px;
+  background: var(--cream);
+  padding: 16px;
+}
+
+.contact-confirmation-box p {
+  margin: 0;
+  color: var(--text-main);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.keep-helper-button,
+.remove-helper-button {
+  width: 100%;
+  border-radius: 999px;
+  padding: 16px 20px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.keep-helper-button {
+  border: 2px solid var(--green-border);
+  background: var(--green-soft);
+  color: var(--green-text);
+}
+
+.keep-helper-button:hover {
+  background: var(--green-soft-hover);
+}
+
+.remove-helper-button {
+  border: 2px solid var(--danger-text);
+  background: #ffffff;
+  color: var(--danger-text);
+}
+
+.remove-helper-button:hover {
+  background: #fff1f0;
+}
