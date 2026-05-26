@@ -5,8 +5,8 @@ import { EMPTY, INVALID, MARBLE } from "./marbleSolitaireLogic";
 
   This component displays the Marble Solitaire board.
 
-  It receives the board state from MarbleSolitairePage and tells the page
-  which hole the user tapped.
+  Each playable space is a button so it can be reached by keyboard and
+  described clearly by screen readers.
 */
 
 function MarbleSolitaireBoard({
@@ -14,6 +14,7 @@ function MarbleSolitaireBoard({
   selectedMarble,
   validMoves,
   onHoleClick,
+  gameOver,
 }) {
   function isSelectedMarble(rowIndex, columnIndex) {
     return (
@@ -33,20 +34,30 @@ function MarbleSolitaireBoard({
     const rowNumber = rowIndex + 1;
     const columnNumber = columnIndex + 1;
 
+    if (gameOver) {
+      if (cell === MARBLE) {
+        return `Game over. Marble in row ${rowNumber}, column ${columnNumber}.`;
+      }
+
+      if (cell === EMPTY) {
+        return `Game over. Empty hole in row ${rowNumber}, column ${columnNumber}.`;
+      }
+    }
+
     if (isSelectedMarble(rowIndex, columnIndex)) {
-      return `Selected marble in row ${rowNumber}, column ${columnNumber}`;
+      return `Selected marble in row ${rowNumber}, column ${columnNumber}. Choose a highlighted empty hole to jump.`;
     }
 
     if (isValidDestination(rowIndex, columnIndex)) {
-      return `Valid move. Jump to row ${rowNumber}, column ${columnNumber}`;
+      return `Valid move. Jump to row ${rowNumber}, column ${columnNumber}.`;
     }
 
     if (cell === MARBLE) {
-      return `Marble in row ${rowNumber}, column ${columnNumber}`;
+      return `Marble in row ${rowNumber}, column ${columnNumber}.`;
     }
 
     if (cell === EMPTY) {
-      return `Empty hole in row ${rowNumber}, column ${columnNumber}`;
+      return `Empty hole in row ${rowNumber}, column ${columnNumber}.`;
     }
 
     return "";
@@ -54,7 +65,17 @@ function MarbleSolitaireBoard({
 
   return (
     <div className="marble-board-area">
-      <div className="marble-board" aria-label="Marble Solitaire board">
+      <p id="marble-board-instructions" className="visually-hidden">
+        Marble Solitaire board. Choose a marble, then choose a valid empty hole
+        two spaces away. The marble in between will be removed.
+      </p>
+
+      <div
+        className="marble-board"
+        role="group"
+        aria-label="Marble Solitaire board"
+        aria-describedby="marble-board-instructions"
+      >
         {board.map((row, rowIndex) =>
           row.map((cell, columnIndex) => {
             const isInvalidSpace = cell === INVALID;
@@ -86,6 +107,7 @@ function MarbleSolitaireBoard({
                   .join(" ")}
                 aria-label={getCellLabel(cell, rowIndex, columnIndex)}
                 aria-pressed={isSelected}
+                aria-disabled={gameOver ? "true" : undefined}
                 onClick={() => onHoleClick(rowIndex, columnIndex)}
               >
                 {isMarble && <span className="marble-piece" />}

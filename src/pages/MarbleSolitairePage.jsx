@@ -169,6 +169,7 @@ function MarbleSolitairePage({ onBackToGames }) {
   selectedMarble={selectedMarble}
   validMoves={validMoves}
   onHoleClick={handleHoleClick}
+  gameOver={gameOver}
 />
 
 {!gameOver && (
