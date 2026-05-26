@@ -3,11 +3,19 @@
    ========================= */
 
 /*
-  Basic Marble Solitaire styling.
+  Marble Solitaire styling.
 
-  This first version focuses on showing the correct board shape.
-  The more realistic wood and shiny marble styling will come later.
+  The aim is to make the game feel calm, tactile and familiar:
+  - soft wooden board
+  - carved-looking holes
+  - glossy black marbles
+  - clear selected and valid-move states
+  - gentle end-of-game feedback
 */
+
+/* =========================
+   Page layout
+   ========================= */
 
 .marble-page {
   width: 100%;
@@ -27,17 +35,93 @@
   justify-content: center;
 }
 
+/* =========================
+   Wooden board
+   ========================= */
+
 .marble-board {
+  position: relative;
+  overflow: hidden;
+
   width: min(100%, 390px);
+  aspect-ratio: 1;
+
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
+  gap: 7px;
 
-  padding: 14px;
-  border-radius: 28px;
-  background: var(--cream);
-  border: 2px solid var(--cream-border);
+  padding: clamp(18px, 4vw, 28px);
+  border-radius: 50%;
+
+  /*
+    CSS-only soft pine wood effect.
+
+    The grain is deliberately subtle so it gives the board warmth without
+    making the game harder to read.
+  */
+  background:
+    radial-gradient(ellipse at 22% 28%, rgba(132, 86, 36, 0.14) 0%, transparent 12%),
+    radial-gradient(ellipse at 76% 68%, rgba(132, 86, 36, 0.12) 0%, transparent 14%),
+    repeating-linear-gradient(
+      4deg,
+      rgba(255, 248, 224, 0.22) 0,
+      rgba(255, 248, 224, 0.22) 5px,
+      rgba(185, 128, 63, 0.09) 6px,
+      rgba(185, 128, 63, 0.09) 11px
+    ),
+    repeating-linear-gradient(
+      92deg,
+      rgba(128, 82, 36, 0.06) 0,
+      rgba(128, 82, 36, 0.06) 2px,
+      transparent 3px,
+      transparent 22px
+    ),
+    linear-gradient(145deg, #f1d09a 0%, #dfb16f 48%, #c28b4b 100%);
+
+  border: 8px solid #9a6936;
+
+  box-shadow:
+    inset 0 8px 12px rgba(255, 246, 220, 0.42),
+    inset 0 -14px 18px rgba(96, 58, 25, 0.22),
+    0 16px 30px rgba(18, 12, 53, 0.18);
 }
+
+/*
+  A subtle inner ring makes the board feel more like a physical wooden object.
+*/
+
+.marble-board::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 245, 220, 0.42);
+  box-shadow:
+    inset 0 0 0 2px rgba(139, 91, 43, 0.16),
+    0 0 0 1px rgba(96, 58, 25, 0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/*
+  A soft sheen gives the board a polished finish.
+*/
+
+.marble-board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent 34%),
+    linear-gradient(300deg, rgba(96, 58, 25, 0.12), transparent 44%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================
+   Board spaces and holes
+   ========================= */
 
 .marble-board-space,
 .marble-hole {
@@ -45,43 +129,256 @@
 }
 
 .marble-board-space-invalid {
+  position: relative;
+  z-index: 1;
   visibility: hidden;
 }
 
 .marble-hole {
   position: relative;
-  border: 2px solid var(--border-soft);
+  z-index: 1;
+
+  border: 2px solid rgba(84, 50, 22, 0.48);
   border-radius: 50%;
-  background: #ffffff;
   padding: 0;
-  cursor: default;
+  cursor: pointer;
+
+  /*
+    The holes are darker than the pine board so they remain easy to see.
+  */
+  background:
+    radial-gradient(circle at 48% 40%, #b9854f 0%, #805027 56%, #402412 100%);
+
+  box-shadow:
+    inset 0 5px 8px rgba(31, 18, 8, 0.44),
+    inset 0 -3px 5px rgba(255, 235, 200, 0.24),
+    0 2px 3px rgba(255, 248, 230, 0.14);
 }
 
-.marble-hole:disabled {
-  opacity: 1;
+.marble-hole:hover {
+  border-color: var(--blue-border);
 }
+
+/* =========================
+   Marbles and empty spaces
+   ========================= */
 
 .marble-piece {
   position: absolute;
-  inset: 12%;
+  inset: 10%;
   border-radius: 50%;
 
+  /*
+    Glossy black marble effect.
+
+    The bright top-left highlight helps it feel shiny rather than flat.
+  */
   background:
-    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.8) 0%, transparent 22%),
-    radial-gradient(circle at 50% 55%, #4a4658 0%, #171421 58%, #05040a 100%);
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.86) 0%, transparent 18%),
+    radial-gradient(circle at 44% 38%, #6b6678 0%, #242230 42%, #090811 76%, #020106 100%);
 
   box-shadow:
-    inset 0 3px 4px rgba(255, 255, 255, 0.18),
-    inset 0 -5px 7px rgba(0, 0, 0, 0.45),
-    0 5px 8px rgba(18, 12, 53, 0.28);
+    inset 0 4px 5px rgba(255, 255, 255, 0.18),
+    inset 0 -7px 9px rgba(0, 0, 0, 0.62),
+    0 6px 9px rgba(18, 12, 53, 0.38);
 }
 
 .marble-empty-space {
   position: absolute;
   inset: 18%;
   border-radius: 50%;
-  background: #e8e1cf;
+
+  /*
+    Empty holes look darker and recessed, but not harsh.
+  */
+  background:
+    radial-gradient(circle at 45% 38%, #7b5a3d 0%, #4a3020 58%, #25160d 100%);
+
   box-shadow:
-    inset 0 4px 7px rgba(18, 12, 53, 0.22),
-    inset 0 -2px 4px rgba(255, 255, 255, 0.65);
+    inset 0 5px 8px rgba(0, 0, 0, 0.42),
+    inset 0 -2px 4px rgba(255, 228, 190, 0.14);
+}
+
+/* =========================
+   Marble Solitaire interaction states
+   ========================= */
+
+/*
+  These styles show which marble is selected and where it can move.
+
+  This is important because the player needs clear feedback after tapping.
+*/
+
+.marble-hole-selected {
+  border-color: var(--purple);
+  outline: 4px solid rgba(100, 40, 215, 0.34);
+  outline-offset: 2px;
+  box-shadow:
+    inset 0 5px 8px rgba(31, 20, 12, 0.36),
+    inset 0 -3px 5px rgba(255, 235, 200, 0.22);
+}
+
+.marble-hole-selected .marble-piece {
+  transform: scale(1.08);
+}
+
+.marble-hole-valid-move {
+  border-color: var(--green-border);
+  outline: 4px dashed rgba(50, 17, 122, 0.35);
+  outline-offset: 2px;
+  background:
+    radial-gradient(circle at 45% 38%, #d9c7ff 0%, #a88bdc 58%, #5d438f 100%);
+  box-shadow:
+    inset 0 5px 8px rgba(31, 20, 12, 0.28);
+}
+
+.marble-hole-valid-move .marble-empty-space {
+  background:
+    radial-gradient(circle at 45% 38%, #f6f1ff 0%, #c8b7ff 58%, #7358ad 100%);
+}
+
+/* =========================
+   Marble Solitaire game-over panel
+   ========================= */
+
+/*
+  This gives the end of the game a clear but gentle moment.
+
+  The aim is not wild confetti. It should feel calm, satisfying and obvious.
+*/
+
+.marble-game-over-panel {
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: 24px;
+  text-align: center;
+
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.74), transparent 32%),
+    linear-gradient(180deg, #fffaf0 0%, #efe1c6 100%);
+
+  border: 2px solid #d8b77d;
+  box-shadow:
+    inset 0 3px 5px rgba(255, 255, 255, 0.55),
+    0 10px 22px rgba(18, 12, 53, 0.16);
+
+  animation: marbleEndPanelIn 0.45s ease-out;
+}
+
+.marble-game-over-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+  color: var(--text-main);
+}
+
+.marble-game-over-panel p {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.marble-game-over-solved {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.8), transparent 32%),
+    linear-gradient(180deg, #fff8df 0%, #ead39b 100%);
+  border-color: #c69735;
+  animation:
+    marbleEndPanelIn 0.45s ease-out,
+    marbleSolvedGlow 1.8s ease-in-out infinite;
+}
+
+.marble-game-over-finished {
+  animation:
+    marbleEndPanelIn 0.45s ease-out,
+    marbleFinishedGlow 2.4s ease-in-out infinite;
+}
+
+/*
+  The small sparkle dots give a tiny celebration effect without making the
+  design feel too childish or distracting.
+*/
+
+.marble-game-over-sparkles {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.marble-game-over-sparkles span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c69735;
+  opacity: 0.75;
+  animation: marbleSparkle 1.2s ease-in-out infinite;
+}
+
+.marble-game-over-sparkles span:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.marble-game-over-sparkles span:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+/* =========================
+   Animations
+   ========================= */
+
+@keyframes marbleEndPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes marbleSolvedGlow {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 3px 5px rgba(255, 255, 255, 0.55),
+      0 10px 22px rgba(18, 12, 53, 0.16),
+      0 0 0 rgba(198, 151, 53, 0);
+  }
+
+  50% {
+    box-shadow:
+      inset 0 3px 5px rgba(255, 255, 255, 0.65),
+      0 10px 22px rgba(18, 12, 53, 0.16),
+      0 0 22px rgba(198, 151, 53, 0.42);
+  }
+}
+
+@keyframes marbleFinishedGlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes marbleSparkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
 }

@@ -1,4 +1,21 @@
 /* =========================
+   Accessibility helpers
+   ========================= */
+
+/*
+  These styles make the app easier to use with a keyboard, screen reader,
+  or reduced-motion setting.
+*/
+
+/* Clear keyboard focus for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 4px solid var(--blue-focus);
+  outline-offset: 3px;
+}
+
+/* =========================
    Screen-reader-only text
    ========================= */
 
@@ -20,4 +37,28 @@
   clip: rect(0 0 0 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* =========================
+   Reduced motion accessibility
+   ========================= */
+
+/*
+  If a user has reduced motion turned on in their device settings,
+  the app should avoid strong animations.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  .falling-counter,
+  .winning-cell,
+  .marble-game-over-panel,
+  .marble-game-over-solved,
+  .marble-game-over-finished,
+  .marble-game-over-sparkles span {
+    animation: none;
+  }
+
+  .column-button-highlighted {
+    transform: none;
+  }
 }
