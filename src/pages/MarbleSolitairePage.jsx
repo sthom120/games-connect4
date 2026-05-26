@@ -165,13 +165,23 @@ function MarbleSolitairePage({ onBackToGames }) {
         </p>
 
         <MarbleSolitaireBoard
-          board={board}
-          selectedMarble={selectedMarble}
-          validMoves={validMoves}
-          onHoleClick={handleHoleClick}
-        />
+  board={board}
+  selectedMarble={selectedMarble}
+  validMoves={validMoves}
+  onHoleClick={handleHoleClick}
+/>
 
-        {gameOver && (
+{!gameOver && (
+  <button
+    type="button"
+    className="new-game-button marble-new-game-button"
+    onClick={handleNewGame}
+  >
+    New Game
+  </button>
+)}
+
+{gameOver && (
           <div
             className={`marble-game-over-panel marble-game-over-${gameResult}`}
             role="status"

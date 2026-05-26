@@ -237,6 +237,9 @@
     radial-gradient(circle at 45% 38%, #f6f1ff 0%, #c8b7ff 58%, #7358ad 100%);
 }
 
+.marble-new-game-button {
+  margin-top: 22px;
+}
 /* =========================
    Marble Solitaire game-over panel
    ========================= */
