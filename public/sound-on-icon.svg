@@ -1,7 +1,0 @@
-<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <title>Sound on</title>
-  <rect width="256" height="256" rx="64" fill="#E4F4EE"/>
-  <path d="M58 108h36l48-38v116l-48-38H58v-40z" fill="#6428D7"/>
-  <path d="M165 95c15 18 15 48 0 66" stroke="#6428D7" stroke-width="12" stroke-linecap="round"/>
-  <path d="M188 72c30 34 30 78 0 112" stroke="#6428D7" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
-</svg>

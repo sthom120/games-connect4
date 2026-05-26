@@ -1,8 +1,0 @@
-<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <title>Solitaire</title>
-  <rect width="256" height="256" rx="64" fill="#F1EAFD"/>
-  <rect x="70" y="55" width="76" height="116" rx="14" transform="rotate(-10 70 55)" fill="#FFFFFF" stroke="#DED8EF" stroke-width="6"/>
-  <rect x="112" y="70" width="76" height="116" rx="14" transform="rotate(10 112 70)" fill="#FFFFFF" stroke="#DED8EF" stroke-width="6"/>
-  <path d="M103 94c-11-16-34-3-25 15 6 13 25 24 25 24s19-11 25-24c9-18-14-31-25-15z" fill="#F04438"/>
-  <path d="M150 118c0-14 23-14 23 0 0 14-23 28-23 28s-23-14-23-28c0-14 23-14 23 0z" fill="#120C35"/>
-</svg>
