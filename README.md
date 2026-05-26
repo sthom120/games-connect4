@@ -82,6 +82,26 @@ No support contact name or phone number is hard-coded into the app.
 
 This is important because the app is stored in a public GitHub repository.
 
+## PWA update safety
+
+The app includes a simple update-checking system so installed versions can update more reliably.
+
+The app uses:
+
+- `public/app-version.json` to store the current deployed version
+- `src/utils/appUpdateChecker.js` to check whether the version has changed
+- a visibility check so the app checks again when the user returns from the home screen
+- service worker cache rules so `app-version.json` is not cached
+
+If a new version is found while the user is on the Games, Support or Settings screen, the app can refresh automatically.
+
+If a new version is found while the user is inside a game, the app waits until they return to a non-game screen before refreshing. This helps avoid interrupting someone mid-game.
+
+To trigger an update check after a deployment, update the version string in:
+
+```txt
+public/app-version.json
+
 ## Project structure
 
 ```txt
