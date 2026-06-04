@@ -1,6 +1,6 @@
 {
-  "name": "Grandma's Games",
-  "short_name": "Games",
+  "name": "Accessible Games Hub",
+  "short_name": "Games Hub",
   "description": "An elderly-friendly games app with simple, accessible games.",
   "start_url": ".",
   "scope": ".",

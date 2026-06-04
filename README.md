@@ -1,12 +1,12 @@
-# Grandma's Games
+# Accessible Games Hub
 
 An elderly-friendly Progressive Web App with simple, accessible games.
 
-Grandma's Games is designed for older adults who may need larger buttons, clearer navigation, simple instructions, calm colours, and a layout that works well on a mobile phone.
+Accessible Games Hub is designed for older adults who may need larger buttons, clearer navigation, simple instructions, calm colours, and a layout that works well on a mobile phone.
 
 ## Live app
 
-[Open Grandma's Games](https://sthom120.github.io/games-connect4/)
+[Open Accessible Games Hub](https://sthom120.github.io/games-connect4/)
 
 ## Project overview
 
