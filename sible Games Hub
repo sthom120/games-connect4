@@ -1,0 +1,49 @@
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 9cc9d2e..1455895 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,12 +1,12 @@[m
+[31m-# Grandma's Games[m
+[32m+[m[32m# Accessible Games Hub[m
+ [m
+ An elderly-friendly Progressive Web App with simple, accessible games.[m
+ [m
+[31m-Grandma's Games is designed for older adults who may need larger buttons, clearer navigation, simple instructions, calm colours, and a layout that works well on a mobile phone.[m
+[32m+[m[32mAccessible Games Hub is designed for older adults who may need larger buttons, clearer navigation, simple instructions, calm colours, and a layout that works well on a mobile phone.[m
+ [m
+ ## Live app[m
+ [m
+[31m-[Open Grandma's Games](https://sthom120.github.io/games-connect4/)[m
+[32m+[m[32m[Open Accessible Games Hub](https://sthom120.github.io/games-connect4/)[m
+ [m
+ ## Project overview[m
+ [m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 1c76ed4..ab52e67 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -1,7 +1,7 @@[m
+ {[m
+[31m-  "name": "games",[m
+[32m+[m[32m  "name": "accessible-games-hub",[m
+   "private": true,[m
+[31m-  "version": "0.0.0",[m
+[32m+[m[32m  "version": "0.2.0",[m
+   "type": "module",[m
+   "scripts": {[m
+   "dev": "vite",[m
+[1mdiff --git a/public/manifest.webmanifest b/public/manifest.webmanifest[m
+[1mindex 549ad45..20dc7ca 100644[m
+[1m--- a/public/manifest.webmanifest[m
+[1m+++ b/public/manifest.webmanifest[m
+[36m@@ -1,6 +1,6 @@[m
+ {[m
+[31m-  "name": "Grandma's Games",[m
+[31m-  "short_name": "Games",[m
+[32m+[m[32m  "name": "Accessible Games Hub",[m
+[32m+[m[32m  "short_name": "Games Hub",[m
+   "description": "An elderly-friendly games app with simple, accessible games.",[m
+   "start_url": ".",[m
+   "scope": ".",[m
