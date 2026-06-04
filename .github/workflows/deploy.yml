@@ -1,4 +1,4 @@
-name: Deploy Games app to GitHub Pages
+name: Deploy Accessible Games Hub to GitHub Pages
 
 on:
   push:
@@ -35,6 +35,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
 
       - name: Build
         run: npm run build
