@@ -1,6 +1,7 @@
 import GameCard from "../components/GameCard";
 import { gamesList } from "../data/gamesList";
 import gamesHeading from "../assets/headings/games-heading.png";
+import HowToUseCard from "../components/HowToUseCard";
 
 /*
   GamesDashboard
@@ -29,12 +30,14 @@ function GamesDashboard({ onSelectGame }) {
 
         <p>Tap a game to start.</p>
       </header>
-
+      <HowToUseCard />
       <div className="games-list">
         {gamesList.map((game) => (
           <GameCard key={game.id} game={game} onSelect={onSelectGame} />
         ))}
       </div>
+
+     
     </main>
   );
 }
