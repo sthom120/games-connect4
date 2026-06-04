@@ -1,7 +1,7 @@
 {
-  "name": "Games",
+  "name": "Grandma's Games",
   "short_name": "Games",
-  "description": "A simple, friendly games app with Connect 4.",
+  "description": "An elderly-friendly games app with simple, accessible games.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
